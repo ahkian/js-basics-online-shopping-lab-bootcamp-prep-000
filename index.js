@@ -52,11 +52,16 @@ function total() {
 }
 
 function removeFromCart(item) {
-  if(cart.hasOwnProperty(item)){
-    delete cart.item
-  }else {
-    console.log('That item is not in your cart.')
+  var n = 0 
+  while (n < cart.length){
+    if (cart[n].hasOwnProperty(item)){
+      cart.splice(n, 1)
+      return `${item} removed from cart`
+    } else {
+      n++
+    }
   }
+  console.log('That item is not in your cart.')
 }
 
 function placeOrder(cardNumber) {
